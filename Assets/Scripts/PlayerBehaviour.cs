@@ -1,22 +1,21 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     public float speed;
-    public GameObject fruit;
     private GameObject currentFruit;
     public float fruitOffsetY = -0.6f;
+    public GameObject[] fruits;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if(currentFruit != null) {
             // current player position
             Vector3 playerPos = transform.position;
@@ -25,7 +24,8 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else {
             // make player hold a new fruit
-            currentFruit = Instantiate(fruit, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            int choice = Random.Range(0, fruits.Length);
+            currentFruit = Instantiate(fruits[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         Keyboard k = Keyboard.current;
         if(k.spaceKey.wasPressedThisFrame) {
