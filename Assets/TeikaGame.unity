@@ -1409,8 +1409,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehaviour
   speed: 0.01
-  fruit: {fileID: 2104167309850689465, guid: a3f14f18551e74581841f1d97342c64f, type: 3}
   fruitOffsetY: -0.6
+  fruits:
+  - {fileID: 2104167309850689465, guid: a3f14f18551e74581841f1d97342c64f, type: 3}
+  - {fileID: 1188091331268506690, guid: 6e459479ea1e7458d9f5417909deee21, type: 3}
+  - {fileID: 4084559271805831663, guid: 4627e6dc68ab04e2cbc3f58fcc40a660, type: 3}
+  - {fileID: 4273035773633054813, guid: f9666aaae30d14089b0e43ea94990b86, type: 3}
+  - {fileID: 8156654909711322075, guid: f82fe13ac713d430594b990726eb667f, type: 3}
+  - {fileID: 5860974743341591541, guid: 3465600dc31e346709363b83737af6ad, type: 3}
+  - {fileID: 6966115832383044998, guid: 78ca78550432f430394dd9e2d91646b4, type: 3}
+  - {fileID: 4117186152760690268, guid: 40dd864ee8d0e4c308d634d2c74db685, type: 3}
+  - {fileID: 3243559819932954355, guid: 805fb6d0ec1294ec781a712007490275, type: 3}
+  - {fileID: 5726703622445436596, guid: e37f0e5264c3141c29667c0d908d2c83, type: 3}
 --- !u!212 &2094001441
 SpriteRenderer:
   serializedVersion: 2

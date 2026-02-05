@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     private GameObject currentFruit;
     public float fruitOffsetY = -0.6f;
     public GameObject[] fruits;
+    public float min, max;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,17 +39,27 @@ public class PlayerBehaviour : MonoBehaviour
             currentFruit = null;
 
         }
+        float offset = 0.0f;
+        // keyboard movement
         if(k.leftArrowKey.isPressed || k.aKey.isPressed)
         {
-            Vector3 newPos = transform.position;
-            newPos.x -= speed;
-            transform.position = newPos;
+            offset = -speed;
         }
         if(k.rightArrowKey.isPressed || k.dKey.isPressed)
         {
-            Vector3 newPos = transform.position;
-            newPos.x += speed;
-            transform.position = newPos;
+            offset = speed;
         }
+
+        Vector3 newPos = transform.position;
+        newPos.x = newPos.x + offset;
+
+        if (newPos.x > max) {
+            newPos.x = max;
+        }
+        if (newPos.x < min) {
+            newPos.x = min;
+        }
+
+        transform.position = newPos;
     }
 }
