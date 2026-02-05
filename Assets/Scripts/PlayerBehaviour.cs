@@ -9,14 +9,18 @@ public class PlayerBehaviour : MonoBehaviour
     public float fruitOffsetY = -0.6f;
     public GameObject[] fruits;
     public float min, max;
+    private float startTime = 0.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         if(currentFruit != null) {
             // current player position
             Vector3 playerPos = transform.position;
