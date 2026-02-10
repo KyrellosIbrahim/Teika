@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9108128126088176417}
   - component: {fileID: -1526969169610995767}
   - component: {fileID: 2888416147220053870}
+  - component: {fileID: 8478334199009340157}
   m_Layer: 0
   m_Name: Pineapple
   m_TagString: Untagged
@@ -227,3 +228,17 @@ PolygonCollider2D:
       - {x: 1.1052201, y: -0.86133295}
       - {x: 1.09, y: 0.26}
   m_UseDelaunayMesh: 1
+--- !u!114 &8478334199009340157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243559819932954355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e4d567440984e07be1e7276ad31769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitBehaviour
+  timeout: 2
+  timeStart: 0
