@@ -29,7 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else {
             // make player hold a new fruit
-            int choice = Random.Range(0, fruits.Length);
+            int choice = Random.Range(0, fruits.Length/2);
             currentFruit = Instantiate(fruits[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         Keyboard k = Keyboard.current;

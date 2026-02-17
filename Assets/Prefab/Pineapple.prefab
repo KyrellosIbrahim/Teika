@@ -240,3 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e4d567440984e07be1e7276ad31769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitBehaviour
+  timeout: 0
+  fruits: []
+  fruitType: 8

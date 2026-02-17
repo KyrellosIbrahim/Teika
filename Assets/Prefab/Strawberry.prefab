@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 9074413886666814644, guid: b9b32f8cbf75f4a7186fb5094ed62063, type: 3}
+    - target: {fileID: 8478334199009340157, guid: 805fb6d0ec1294ec781a712007490275, type: 3}
+      propertyPath: fruitType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8707072076330836590, guid: 805fb6d0ec1294ec781a712007490275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

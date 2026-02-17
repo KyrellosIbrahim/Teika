@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8478334199009340157, guid: 805fb6d0ec1294ec781a712007490275, type: 3}
+      propertyPath: fruitType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8707072076330836590, guid: 805fb6d0ec1294ec781a712007490275, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
