@@ -74,7 +74,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     public void updateScore(int points) {
-        score += points;
+        score += this.points[points];
         scoreText.SetText("Score: " + score);
     }
 }
