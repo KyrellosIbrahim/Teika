@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject[] fruits;
     public float min, max;
     private float startTime = 0.0f;
+
+    public int[] points;
+    public int score;
+    public TMP_Text scoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startTime = Time.time;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -65,5 +71,10 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         transform.position = newPos;
+    }
+
+    public void updateScore(int points) {
+        score += points;
+        scoreText.SetText("Score: " + score);
     }
 }
