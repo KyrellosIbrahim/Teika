@@ -15,11 +15,13 @@ public class PlayerBehaviour : MonoBehaviour
     public int[] points;
     public int score;
     public TMP_Text scoreText;
+    public AudioSource dropSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startTime = Time.time;
         score = 0;
+        dropSource = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else {
             // make player hold a new fruit
-            int choice = Random.Range(0, fruits.Length/2);
+            int choice = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>().updateQueue();
             currentFruit = Instantiate(fruits[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         Keyboard k = Keyboard.current;
@@ -47,7 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
             collider.enabled = true;
             
             currentFruit = null;
-
+            dropSource.Play();
         }
         float offset = 0.0f;
         // keyboard movement

@@ -6,11 +6,12 @@ public class FruitBehaviour : MonoBehaviour
     private float timeStart;
     public GameObject[] fruits;
     public int fruitType;
+    private AudioSource mergeSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
      fruits = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().fruits;
-
+     mergeSource = GameObject.FindGameObjectWithTag("Player").GetComponents<AudioSource>()[0];
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class FruitBehaviour : MonoBehaviour
                 currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
 
                 // merge sound
-                GetComponent<AudioSource>().Play();
+                mergeSource.Play();
 
                 // update score
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().updateScore(fruitType);
