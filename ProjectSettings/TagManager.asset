@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fruit
   - TopBorder
+  - Queue
   layers:
   - Default
   - TransparentFX
