@@ -101,3 +101,15 @@ InitTestScene*.unity*
 .DS_Store
 
 Assets/Audio/
+# Unity junk
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Your problem folders
+webBuild/
+Assets/_Recovery/
