@@ -3,36 +3,51 @@ using UnityEngine;
 public class BackgroundManager : MonoBehaviour
 {
     public float speed;
-    public float pivotPoint;
     public GameObject backPrefab;
     private GameObject[] backs;
     public float scale;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private float camRight;
+    private float camTop;
+    private float spriteWidth;
+    private float spriteHeight;
+
     void Start()
     {
-        pivotPoint = scale * 16 * -0.32f;
+        Camera cam = Camera.main;
+        camRight = cam.ViewportToWorldPoint(new Vector3(1, 1, 0)).x;
+        camTop   = cam.ViewportToWorldPoint(new Vector3(1, 1, 0)).y;
+
         backPrefab.transform.localScale = new Vector3(scale, scale, scale);
-        backs = new GameObject[3];
-        for(int i = 0; i < 3; i++) {
-            float xPos = pivotPoint - (pivotPoint/2 * i);
-            float yPos = pivotPoint - (pivotPoint/2 * i);
-            Vector2 position = new Vector2(xPos, yPos);
-            backs[i] = Instantiate(backPrefab, position, Quaternion.identity);
+        Sprite s = backPrefab.GetComponent<SpriteRenderer>().sprite;
+        spriteWidth  = s.bounds.size.x * scale;
+        spriteHeight = s.bounds.size.y * scale;
+
+        float overlap = 0.6f; // lower = more overlap, 1.0 = edge to edge
+
+        backs = new GameObject[4];
+        for (int i = 0; i < 4; i++) {
+            Vector2 pos = new Vector2(camRight + spriteWidth  * overlap * i,
+                                      camTop   + spriteHeight * overlap * i);
+            backs[i] = Instantiate(backPrefab, pos, Quaternion.identity);
         }
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-     for(int i = 0; i < 3; i++) {
-        float xPos = backs[i].transform.position.x + speed;
-        float yPos = backs[i].transform.position.y + speed;
-        Vector2 position = new Vector2(xPos, yPos);
-        if(backs[i].transform.position.x > -pivotPoint/2) {
-            position = new Vector2(pivotPoint, pivotPoint);
+        float camLeft   = Camera.main.ViewportToWorldPoint(Vector3.zero).x;
+        float camBottom = Camera.main.ViewportToWorldPoint(Vector3.zero).y;
+
+        for (int i = 0; i < 4; i++) {
+            Vector3 pos = backs[i].transform.position;
+            pos.x -= speed * Time.deltaTime;
+            pos.y -= speed * Time.deltaTime;
+            backs[i].transform.position = pos;
+
+            if (pos.x < camLeft - spriteWidth || pos.y < camBottom - spriteHeight) {
+                backs[i].transform.position = new Vector2(camRight + spriteWidth,
+                                                          camTop   + spriteHeight);
+            }
         }
-        backs[i].transform.position = position;
-     }   
     }
 }
